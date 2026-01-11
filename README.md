@@ -1,63 +1,148 @@
-🚢 Dark Canyon: Tekne Turu Otomasyonu & Kaptan Paneli
-Bu proje, turizm sektöründeki tekne işletmelerinin iskele ve sefer süreçlerini dijitalleştirmek amacıyla geliştirilmiştir. Manuel takip sistemlerini ortadan kaldırarak kaptan ve iskele personeli arasındaki veri akışını optimize eder.
+# 🚢 Dark Canyon – Tekne Turu Otomasyonu & Kaptan Paneli
 
-🚀 Öne Çıkan Özellikler
-Gerçek Zamanlı Takip: İskeledeki yetişkin ve çocuk yolcu sayılarının anlık izlenmesi.
+Dark Canyon, turizm sektöründe faaliyet gösteren tekne işletmelerinin **iskele ve sefer yönetim süreçlerini dijitalleştirmek** amacıyla geliştirilmiş bir mobil ve sunucu tabanlı otomasyon sistemidir.
 
-Kaptan Kontrolü: Tekne kartlarına dokunarak manuel sefer başlatma ve bitirme (Toggle sistemi).
+Manuel yolcu sayımı, sözlü bildirimler ve dağınık takip yöntemlerini ortadan kaldırarak; **kaptan**, **iskele personeli** ve **sistem** arasındaki veri akışını hızlı, güvenilir ve anlık hale getirir.
 
-Akıllı Görselleştirme: Tekne kapasitesine göre dinamik doluluk barı ve durum bazlı (Mavi/Turuncu) renk değişimi.
+---
 
-Optimistik UI: Sunucu gecikmelerini tolere eden ve kullanıcıya anında geri bildirim veren akıcı deneyim.
+## 🎯 Projenin Amacı
 
-🛠 Teknoloji Yığını
-Frontend: React Native (Expo)
+* Tekne seferlerinin manuel takibini ortadan kaldırmak
+* Yolcu sayılarının gerçek zamanlı ve hatasız izlenmesini sağlamak
+* Kaptan ve iskele arasındaki iletişimi dijitalleştirmek
+* Anlık geri bildirim veren, akıcı ve kullanıcı dostu bir kaptan paneli sunmak
 
-Backend: Python FastAPI / Node.js
+---
 
-İkonlar: Lucide-React-Native
+## 🚀 Öne Çıkan Özellikler
 
-Veri Senkronizasyonu: RESTful API Polling (3sn periyotlu).
+### 🔄 Gerçek Zamanlı Takip
 
-📋 Kurulum ve Çalıştırma Talimatları
-Proje, Backend (Sunucu) ve Frontend (Mobil Uygulama) olmak üzere iki ana bölümden oluşur.
+* İskelede binen **yetişkin** ve **çocuk** yolcu sayıları anlık olarak izlenir
+* Veriler 3 saniyelik polling ile senkronize edilir
 
-1. Backend (Sunucu) Kurulumu
-Backend, tekne statülerini ve yolcu verilerini yönetir.
+### 🧑‍✈️ Kaptan Kontrol Paneli
 
-backend/ dizinine gidin.
+* Tekne kartına dokunarak **sefer başlatma / bitirme** (Toggle sistemi)
+* Manuel ve hızlı kontrol imkânı
 
-Gerekli kütüphaneleri yükleyin:
+### 📊 Akıllı Görselleştirme
 
-Bash
+* Tekne kapasitesine göre **dinamik doluluk barı**
+* Duruma bağlı renk değişimi:
 
+  * 🟦 Mavi: Uygun / Normal durum
+  * 🟧 Turuncu: Kapasiteye yaklaşan veya kritik durum
+
+### ⚡ Optimistic UI Deneyimi
+
+* Sunucu gecikmelerine rağmen kullanıcıya **anında görsel geri bildirim**
+* Akıcı ve kesintisiz kullanım hissi
+
+---
+
+## 🛠 Teknoloji Yığını
+
+### Frontend (Mobil Uygulama)
+
+* **React Native (Expo)**
+* **Lucide-React-Native** (ikon seti)
+
+### Backend (Sunucu)
+
+* **Python FastAPI** *(alternatif olarak Node.js)*
+* RESTful API mimarisi
+
+### Veri Senkronizasyonu
+
+* **REST API Polling** (3 saniyelik periyot)
+
+---
+
+## 📋 Kurulum ve Çalıştırma
+
+Proje iki ana bileşenden oluşur:
+
+1. **Backend (Sunucu)**
+2. **Frontend (Mobil Uygulama)**
+
+### 1️⃣ Backend (Sunucu) Kurulumu
+
+Backend, tekne durumlarını ve yolcu verilerini yönetir.
+
+```bash
+cd backend/
 pip install fastapi uvicorn
+```
+
 Sunucuyu yerel ağda erişilebilir şekilde başlatın:
 
-Bash
-
+```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
-2. Frontend (Mobil Uygulama) Kurulumu
+```
+
+---
+
+### 2️⃣ Frontend (Mobil Uygulama) Kurulumu
+
 Ana dizinde bağımlılıkları yükleyin:
 
-Bash
-
+```bash
 npm install
-App.tsx içerisindeki API_BASE değişkenini, sunucunun çalıştığı bilgisayarın yerel IP adresiyle güncelleyin:
+```
 
-JavaScript
+`App.tsx` dosyasında API adresini, sunucunun çalıştığı bilgisayarın **yerel IP adresi** ile güncelleyin:
 
-const API_BASE = "http://192.168.x.x:8000"; 
+```ts
+const API_BASE = "http://192.168.x.x:8000";
+```
+
 Uygulamayı başlatın:
 
-Bash
-
+```bash
 npx expo start
-Telefonunuzdaki Expo Go uygulaması ile QR kodu taratarak kaptan panelini kullanmaya başlayın.
+```
 
-📂 Proje Yapısı
-backend/main.py: Veri yönetimini ve API endpointlerini içeren sunucu kodları.
+📱 Telefonunuzdaki **Expo Go** uygulaması ile QR kodu tarayarak kaptan panelini kullanmaya başlayabilirsiniz.
 
-App.tsx: Mobil uygulamanın ana mantığı ve gerçek zamanlı UI güncellemeleri.
+---
 
-Versiyon Kontrolü: Proje süresince main ve gelistirme dalları üzerinden Git Branching stratejisi uygulanmıştır.
+## 📂 Proje Yapısı
+
+```
+backend/
+ └── main.py        # API endpointleri ve veri yönetimi
+
+App.tsx             # Mobil uygulamanın ana mantığı ve UI
+```
+
+---
+
+## 🌱 Versiyon Kontrolü
+
+Proje geliştirme sürecinde aşağıdaki **Git Branching** stratejisi uygulanmıştır:
+
+* `main` → Kararlı sürüm
+* `gelistirme` → Aktif geliştirme ve yeni özellikler
+
+---
+
+## 📌 Notlar & Geliştirme Fikirleri
+
+* Web tabanlı iskele paneli entegrasyonu
+* WebSocket ile gerçek zamanlı veri akışı
+* Kullanıcı yetkilendirme (kaptan / iskele personeli)
+* Sefer geçmişi ve raporlama ekranları
+
+---
+
+## 👤 Geliştirici
+
+Bu proje, **turizm ve ulaşım sektöründe dijital dönüşümü desteklemek** amacıyla geliştirilmiştir.
+
+Her türlü geri bildirim ve katkı için pull request veya issue açabilirsiniz.
+
+---
+
+✨ Keyifli kodlamalar ve güvenli seferler!
