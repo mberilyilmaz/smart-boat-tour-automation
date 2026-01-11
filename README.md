@@ -1,20 +1,63 @@
-# Dark Canyon: Tekne Turu Otomasyonu & Kaptan Paneli
+🚢 Dark Canyon: Tekne Turu Otomasyonu & Kaptan Paneli
+Bu proje, turizm sektöründeki tekne işletmelerinin iskele ve sefer süreçlerini dijitalleştirmek amacıyla geliştirilmiştir. Manuel takip sistemlerini ortadan kaldırarak kaptan ve iskele personeli arasındaki veri akışını optimize eder.
 
-[cite_start]Bu proje, turizm sektöründeki tekne işletmelerinin iskele ve sefer süreçlerini dijitalleştirmek amacıyla geliştirilmiştir. [cite: 15, 18]
+🚀 Öne Çıkan Özellikler
+Gerçek Zamanlı Takip: İskeledeki yetişkin ve çocuk yolcu sayılarının anlık izlenmesi.
 
-## 🚀 Öne Çıkan Özellikler
-- [cite_start]**Gerçek Zamanlı Takip:** İskeledeki yetişkin ve çocuk yolcu sayılarının anlık izlenmesi. [cite: 18, 22]
-- [cite_start]**Kaptan Kontrolü:** Tekne kartlarına dokunarak manuel sefer başlatma ve bitirme. [cite: 27]
-- [cite_start]**Akıllı Görselleştirme:** Kapasiteye göre dinamik doluluk barı ve durum bazlı renk değişimi. 
-- [cite_start]**Optimistik UI:** Sunucu gecikmelerini tolere eden akıcı kullanıcı deneyimi. [cite: 22]
+Kaptan Kontrolü: Tekne kartlarına dokunarak manuel sefer başlatma ve bitirme (Toggle sistemi).
 
-## 🛠 Teknoloji Yığını
-- [cite_start]**Frontend:** React Native (Expo) [cite: 22, 27]
-- [cite_start]**Backend:** Python FastAPI / Node.js [cite: 15, 22]
-- [cite_start]**İkonlar:** Lucide-React-Native [cite: 15]
-- [cite_start]**Veri Senkronizasyonu:** RESTful API Polling 
+Akıllı Görselleştirme: Tekne kapasitesine göre dinamik doluluk barı ve durum bazlı (Mavi/Turuncu) renk değişimi.
 
-## 📋 Kurulum
-1. `npm install` ile bağımlılıkları yükleyin.
-2. `App.tsx` içerisindeki `API_BASE` değişkenini kendi yerel IP adresinizle güncelleyin.
-3. `npx expo start` ile uygulamayı başlatın.
+Optimistik UI: Sunucu gecikmelerini tolere eden ve kullanıcıya anında geri bildirim veren akıcı deneyim.
+
+🛠 Teknoloji Yığını
+Frontend: React Native (Expo)
+
+Backend: Python FastAPI / Node.js
+
+İkonlar: Lucide-React-Native
+
+Veri Senkronizasyonu: RESTful API Polling (3sn periyotlu).
+
+📋 Kurulum ve Çalıştırma Talimatları
+Proje, Backend (Sunucu) ve Frontend (Mobil Uygulama) olmak üzere iki ana bölümden oluşur.
+
+1. Backend (Sunucu) Kurulumu
+Backend, tekne statülerini ve yolcu verilerini yönetir.
+
+backend/ dizinine gidin.
+
+Gerekli kütüphaneleri yükleyin:
+
+Bash
+
+pip install fastapi uvicorn
+Sunucuyu yerel ağda erişilebilir şekilde başlatın:
+
+Bash
+
+uvicorn main:app --host 0.0.0.0 --port 8000
+2. Frontend (Mobil Uygulama) Kurulumu
+Ana dizinde bağımlılıkları yükleyin:
+
+Bash
+
+npm install
+App.tsx içerisindeki API_BASE değişkenini, sunucunun çalıştığı bilgisayarın yerel IP adresiyle güncelleyin:
+
+JavaScript
+
+const API_BASE = "http://192.168.x.x:8000"; 
+Uygulamayı başlatın:
+
+Bash
+
+npx expo start
+Telefonunuzdaki Expo Go uygulaması ile QR kodu taratarak kaptan panelini kullanmaya başlayın.
+
+📂 Proje Yapısı
+backend/main.py: Veri yönetimini ve API endpointlerini içeren sunucu kodları.
+
+App.tsx: Mobil uygulamanın ana mantığı ve gerçek zamanlı UI güncellemeleri.
+
+Versiyon Kontrolü: Proje süresince main ve gelistirme dalları üzerinden Git Branching stratejisi uygulanmıştır.
